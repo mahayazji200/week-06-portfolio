@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهمة 1: معرض أعمال متحرك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+    <style>
+        body { font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif; }
+        .uni-header { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-bottom: 1px solid rgba(255,255,255,0.06); background: #0f0f1a; font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif; }
+        .uni-header img { width: 35px; height: 35px; border-radius: 8px; object-fit: contain; background: #fff; padding: 2px; }
+        .uni-header span { color: #888; font-size: 0.85rem; font-weight: 600; }
+        .instructions { font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif; background: #0f0f1a; color: #e0e0e0; padding: 30px; border-bottom: 2px dashed rgba(76,175,80,0.3); }
+        .instructions h1 { color: #4caf50; margin-bottom: 5px; font-size: 1.8rem; }
+        .instructions .desc { color: #888; margin-bottom: 25px; }
+        .task { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 20px; margin-bottom: 15px; }
+        .task h3 { color: #fff; margin-bottom: 8px; }
+        .task-num { color: #4caf50; font-weight: 700; }
+        .hint { background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.2); border-radius: 8px; padding: 12px; margin-top: 8px; font-size: 0.9rem; }
+        .hint strong { color: #4caf50; }
+        .instructions code { background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; color: #4caf50; font-family: monospace; direction: ltr; display: inline-block; }
+        pre, code, kbd, samp, .code, .code-block { direction: ltr; text-align: left; unicode-bidi: isolate; }
+    </style>
+<link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+
+    <div class="uni-header">
+        <img src="https://alaqsa.edu.ps/site/MainPage/Resources/img/logo.png" alt="جامعة الأقصى">
+        <span>جامعة الأقصى - تصميم وإدارة مواقع الإنترنت 1</span>
+    </div>
+
+    <div class="instructions">
+        <h1>المهمة 1: معرض أعمال متحرك</h1>
+        <p class="desc">ابنِ قسماً لمعرض أعمال (Portfolio) باستخدام التحريك (Animation) والانتقالات (Transitions) والتحويلات (Transform) والخصائص المخصصة (CSS Variables) في CSS. اكتب التنسيقات في الملف <code>portfolio.css</code>.</p>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 1:</span> عرّف متغيرات CSS داخل :root</h3>
+            <p>أنشئ متغيرات للألوان والمسافات وتدوير الزوايا (border-radius) وسرعات الانتقال.</p>
+            <div class="hint">
+                <strong>المتغيرات:</strong> <code>--primary: #4caf50</code>، <code>--bg-dark: #0f0f1a</code>، <code>--bg-card: #1a1a2e</code>، <code>--text: #e0e0e0</code>، <code>--radius: 12px</code>، <code>--transition: all 0.3s ease</code>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 2:</span> شريط تنقل مع تأثيرات الانتقال</h3>
+            <p>نسّق روابط شريط التنقل بحيث يتغير لونها بسلاسة عند تمرير الفأرة (Hover). أضف تأثير خط سفلي باستخدام العنصر الوهمي <code>::after</code> مع <code>transform: scaleX(0)</code> ليتمدد إلى <code>scaleX(1)</code> عند التمرير.</p>
+            <div class="hint">
+                <strong>تلميح:</strong> استخدم <code>.nav-link::after { content: ""; display: block; height: 2px; background: var(--primary); transform: scaleX(0); transition: transform 0.3s; }</code> و <code>.nav-link:hover::after { transform: scaleX(1); }</code>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 3:</span> نص القسم الرئيسي مع حركة ظهور تدريجي</h3>
+            <p>أنشئ حركة <code>@keyframes fadeInUp</code> وطبّقها على العنوان الرئيسي والعنوان الفرعي مع تأخيرات متتالية.</p>
+            <div class="hint">
+                <strong>تلميح:</strong> <code>@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }</code>. استخدم <code>animation-delay</code> لجعل العناصر تظهر واحداً تلو الآخر.
+            </div>
+        </div>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 4:</span> بطاقات المهارات مع تكبير عند التمرير</h3>
+            <p>يجب أن تكبر كل بطاقة مهارة قليلاً عند التمرير باستخدام <code>transform: scale(1.05)</code> مع انتقال سلس.</p>
+            <div class="hint">
+                <strong>تلميح:</strong> ضع <code>transition: var(--transition)</code> على البطاقة، ثم <code>transform: scale(1.05)</code> وظلاً أخضر <code>box-shadow</code> عند التمرير.
+            </div>
+        </div>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 5:</span> بطاقات المشاريع مع طبقة فوق الصورة</h3>
+            <p>أنشئ طبقة علوية (Overlay) على بطاقات المشاريع تظهر تدريجياً عند التمرير. يجب أن تعرض الطبقة اسم المشروع وزر "عرض".</p>
+            <div class="hint">
+                <strong>تلميح:</strong> <code>.project-overlay { opacity: 0; transition: opacity 0.4s; }</code> و <code>.project-card:hover .project-overlay { opacity: 1; }</code>
+            </div>
+        </div>
+
+        <div class="task">
+            <h3><span class="task-num">TODO 6:</span> حركات تظهر مع التمرير (باستخدام CSS فقط)</h3>
+            <p>استخدم الخاصية <code>animation</code> مع <code>animation-timeline: view()</code>، أو حركات <code>@keyframes</code> بسيطة تعمل عند تحميل الصفحة لتعطي تأثيراً يشبه الظهور مع التمرير.</p>
+            <div class="hint">
+                <strong>تلميح:</strong> طبّق حركة <code>fadeInUp</code> على كل قسم مع زيادة التأخير تدريجياً: <code>.skills-section { animation: fadeInUp 0.8s ease-out 0.2s both; }</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+         HTML معرض الأعمال - نسّقه في portfolio.css
+         ============================================= -->
+
+    <!-- شريط التنقل -->
+    <nav class="portfolio-nav">
+        <div class="nav-logo">معرض أعمالي</div>
+        <ul class="nav-menu">
+            <li><a href="#hero-section" class="nav-link">الرئيسية</a></li>
+            <li><a href="#skills-section" class="nav-link">المهارات</a></li>
+            <li><a href="#projects-section" class="nav-link">المشاريع</a></li>
+            <li><a href="#contact-section" class="nav-link">تواصل معي</a></li>
+        </ul>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero-section" id="hero-section">
+        <div class="hero-content">
+            <p class="hero-greeting">مرحباً، أنا</p>
+            <h1 class="hero-name">اسمك هنا</h1>
+            <p class="hero-role">مطوّر واجهات أمامية (Front-End)</p>
+            <p class="hero-desc">أصمم تجارب ويب جميلة ومتجاوبة ومتحركة باستخدام تقنيات CSS الحديثة.</p>
+            <div class="hero-actions">
+                <a href="#projects-section" class="btn-hero-primary">شاهد أعمالي</a>
+                <a href="#contact-section" class="btn-hero-secondary">تواصل معي</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المهارات -->
+    <section class="skills-section" id="skills-section">
+        <h2 class="section-title">مهاراتي</h2>
+        <p class="section-desc">التقنيات والأدوات التي أعمل بها</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">&#128421;</div>
+                <h3>HTML5</h3>
+                <p>وسوم دلالية وإمكانية الوصول</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">&#127912;</div>
+                <h3>CSS3</h3>
+                <p>الحركات، Grid، Flexbox</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">&#9889;</div>
+                <h3>JavaScript</h3>
+                <p>ES6+، والتعامل مع DOM</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">&#128736;</div>
+                <h3>Git & GitHub</h3>
+                <p>إدارة الإصدارات والعمل الجماعي</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">&#128241;</div>
+                <h3>التصميم المتجاوب</h3>
+                <p>البدء بتصميم الهاتف أولاً</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">&#127775;</div>
+                <h3>Bootstrap</h3>
+                <p>بناء الواجهات بسرعة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section class="projects-section" id="projects-section">
+        <h2 class="section-title">مشاريعي</h2>
+        <p class="section-desc">بعض أعمالي الحديثة</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" alt="المشروع 1" class="project-image">
+                <div class="project-overlay">
+                    <h3>لوحة تحكم متجر إلكتروني</h3>
+                    <p>HTML، CSS، JavaScript</p>
+                    <a href="#" class="project-btn">عرض المشروع</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=300&fit=crop" alt="المشروع 2" class="project-image">
+                <div class="project-overlay">
+                    <h3>تطبيق الطقس</h3>
+                    <p>JavaScript، الربط مع API</p>
+                    <a href="#" class="project-btn">عرض المشروع</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop" alt="المشروع 3" class="project-image">
+                <div class="project-overlay">
+                    <h3>صفحة تعريفية لتطبيق جوال</h3>
+                    <p>HTML، CSS، Bootstrap</p>
+                    <a href="#" class="project-btn">عرض المشروع</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section class="contact-section" id="contact-section">
+        <h2 class="section-title">تواصل معي</h2>
+        <p class="section-desc">لا تتردد في التواصل معي للتعاون أو لمجرد دردشة ودية</p>
+        <div class="contact-links">
+            <a href="#" class="contact-link">البريد الإلكتروني</a>
+            <a href="#" class="contact-link">GitHub</a>
+            <a href="#" class="contact-link">LinkedIn</a>
+            <a href="#" class="contact-link">Twitter</a>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="portfolio-footer">
+        <p>صُمّم بحركات CSS خالصة | جامعة الأقصى - تصميم وإدارة مواقع الإنترنت 1</p>
+    </footer>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"a1dabd9b83e64f32bc03a4b3ded9fb02","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

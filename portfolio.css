@@ -1,0 +1,96 @@
+/* TODO 1: متغيرات CSS */
+:root {
+  --primary: #4caf50;
+  --bg-dark: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --text: #e0e0e0;
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* TODO 2: روابط التنقل */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+/* TODO 3: حركة الظهور */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-greeting {
+  animation: fadeInUp 0.8s ease both;
+}
+
+.hero-name {
+  animation: fadeInUp 0.8s ease both;
+  animation-delay: 0.2s;
+}
+
+.hero-role {
+  animation: fadeInUp 0.8s ease both;
+  animation-delay: 0.4s;
+}
+
+.hero-desc {
+  animation: fadeInUp 0.8s ease both;
+  animation-delay: 0.6s;
+}
+
+/* TODO 4: بطاقات المهارات */
+.skill-card {
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+}
+/* TODO 6: حركات الأقسام */
+.skills-section {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.projects-section {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.contact-section {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+/* خلفية الصفحة باستخدام المتغيرات */
+body {
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px;
+}
